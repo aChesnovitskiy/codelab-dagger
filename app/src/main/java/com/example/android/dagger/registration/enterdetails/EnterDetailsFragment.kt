@@ -45,10 +45,10 @@ class EnterDetailsFragment : Fragment() {
      * different ViewModels with different lifecycles.
      */
     @Inject
-    private lateinit var registrationViewModel: RegistrationViewModel
+    lateinit var registrationViewModel: RegistrationViewModel
 
     @Inject
-    private lateinit var enterDetailsViewModel: EnterDetailsViewModel
+    lateinit var enterDetailsViewModel: EnterDetailsViewModel
 
     private lateinit var errorTextView: TextView
     private lateinit var usernameEditText: EditText
@@ -57,7 +57,7 @@ class EnterDetailsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        (requireActivity().application as MyApplication).appComponent.inject(this)
+        (activity as RegistrationActivity).registrationComponent.inject(this)
     }
 
     override fun onCreateView(
